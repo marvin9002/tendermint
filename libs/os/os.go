@@ -58,10 +58,6 @@ func FileExists(filePath string) bool {
 	return !os.IsNotExist(err)
 }
 
-func ReadFile(filePath string) ([]byte, error) {
-	return ioutil.ReadFile(filePath)
-}
-
 func MustReadFile(filePath string) []byte {
 	fileBytes, err := ioutil.ReadFile(filePath)
 	if err != nil {
