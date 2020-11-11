@@ -67,13 +67,8 @@ func MustReadFile(filePath string) []byte {
 	return fileBytes
 }
 
-func WriteFile(filePath string, contents []byte, mode os.FileMode) error {
-	return ioutil.WriteFile(filePath, contents, mode)
-}
-
 func MustWriteFile(filePath string, contents []byte, mode os.FileMode) {
-	err := WriteFile(filePath, contents, mode)
-	if err != nil {
+	if err := ioutil.WriteFile(filePath, contents, mode); err != nil {
 		Exit(fmt.Sprintf("MustWriteFile failed: %v", err))
 	}
 }
